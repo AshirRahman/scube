@@ -99,13 +99,15 @@ class DataRevenueScreen extends StatelessWidget {
 
                                 return Column(
                                   children: [
-                                    EnergyChartCard(
-                                      title: "Energy Chart",
-                                      value:
-                                          "${controller.metricValue.value.toStringAsFixed(2)} kw",
-                                      items: controller.dataCostList,
-                                    ),
-                                    const SizedBox(height: 16),
+                                    if (controller.isCustomDate.value)
+                                      EnergyChartCard(
+                                        title: "Energy Chart",
+                                        value:
+                                            "${controller.metricValue.value.toStringAsFixed(2)} kw",
+                                        items: controller.dataCostList,
+                                      ),
+                                    if (controller.isCustomDate.value)
+                                      const SizedBox(height: 16),
                                     EnergyChartCard(
                                       title: "Energy Chart",
                                       value: "5.53 kw",

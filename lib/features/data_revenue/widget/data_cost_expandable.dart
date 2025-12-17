@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
+import 'package:scube/core/utils/constants/icon_path.dart';
 import '../model/data_cost_model.dart';
 
 class DataCostExpandable extends StatelessWidget {
@@ -19,7 +20,6 @@ class DataCostExpandable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return Container(
-        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey.shade300),
           borderRadius: BorderRadius.circular(12),
@@ -28,37 +28,79 @@ class DataCostExpandable extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: onToggle,
-              child: Row(
-                children: [
-                  const Icon(Icons.bar_chart),
-                  const SizedBox(width: 8),
-                  Text(
-                    "Data & Cost Info",
-                    style: getTextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  const Spacer(),
-                  Icon(
-                    expanded.value ? Icons.expand_less : Icons.expand_more,
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Row(
+                  children: [
+                    const Icon(Icons.bar_chart),
+                    const SizedBox(width: 8),
+                    Text(
+                      "Data & Cost Info",
+                      style: getTextStyle(fontWeight: FontWeight.w600),
+                    ),
+                    const Spacer(),
+                    Image.asset(
+                      expanded.value ? IconPath.upArrow : IconPath.downArrow,
+                      width: 20,
+                      height: 20,
+                    ),
+                  ],
+                ),
               ),
             ),
             if (expanded.value) ...[
-              const SizedBox(height: 12),
-              ...items.map((e) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(e.label, style: getTextStyle(fontSize: 13)),
-                        Text(
-                          "${e.data} (${e.percentage}%)",
-                          style: getTextStyle(fontSize: 13),
-                        ),
-                        Text("${e.cost} ৳", style: getTextStyle(fontSize: 13)),
-                      ],
-                    ),
-                  )),
+              Divider(height: 1, color: Colors.grey.shade300),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  children: items.map((e) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text(
+                                "Data ${e.label} : ",
+                                style: getTextStyle(
+                                  fontSize: 13,
+                                  color: Colors.grey.shade700,
+                                ),
+                              ),
+                              Text(
+                                "${e.data} (${e.percentage}%)",
+                                style: getTextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              Text(
+                                "Cost ${e.label} : ",
+                                style: getTextStyle(
+                                  fontSize: 13,
+                                  color: Colors.grey.shade700,
+                                ),
+                              ),
+                              Text(
+                                "${e.cost} ৳",
+                                style: getTextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
             ],
           ],
         ),

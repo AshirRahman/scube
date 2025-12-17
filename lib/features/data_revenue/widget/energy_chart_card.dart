@@ -27,16 +27,21 @@ class EnergyChartCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(title, style: getTextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-              Text(value, style: getTextStyle(fontSize: 28, fontWeight: FontWeight.w900)),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(title,
+                    style: getTextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w600)),
+                Text(value,
+                    style: getTextStyle(
+                        fontSize: 28, fontWeight: FontWeight.w600)),
+              ],
+            ),
           ),
-
           const SizedBox(height: 12),
-
           ...items.asMap().entries.map((entry) {
             final idx = entry.key;
             final e = entry.value;
@@ -51,7 +56,8 @@ class EnergyChartCard extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 6),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(color: Colors.grey.shade300),
@@ -65,38 +71,68 @@ class EnergyChartCard extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Container(height: 12, width: 12, decoration: BoxDecoration(color: dotColor, shape: BoxShape.circle)),
+                          Container(
+                              height: 12,
+                              width: 12,
+                              decoration: BoxDecoration(
+                                  color: dotColor, shape: BoxShape.circle)),
                           const SizedBox(height: 8),
-                          Text(e.label, textAlign: TextAlign.center, style: getTextStyle(fontSize: 14, fontWeight: FontWeight.w700)),
+                          Text(e.label,
+                              textAlign: TextAlign.center,
+                              style: getTextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w700)),
                         ],
                       ),
                     ),
-
                     const SizedBox(width: 12),
-                    Container(width: 2, height: 48, decoration: BoxDecoration(color: Colors.grey.shade300, borderRadius: BorderRadius.circular(2))),
+                    Container(
+                        width: 2,
+                        height: 48,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade300,
+                            borderRadius: BorderRadius.circular(2))),
                     const SizedBox(width: 12),
-
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [
-                              Text('Data', style: getTextStyle(fontSize: 13, color: Colors.grey.shade700)),
+                              Text('Data',
+                                  style: getTextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade700)),
                               const SizedBox(width: 8),
-                              Text(':', style: getTextStyle(fontSize: 13, color: Colors.grey.shade700)),
+                              Text(':',
+                                  style: getTextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade700)),
                               const SizedBox(width: 8),
-                              Expanded(child: Text('${e.data.toStringAsFixed(2)} (${e.percentage.toStringAsFixed(2)}%)', style: getTextStyle(fontSize: 13, fontWeight: FontWeight.w700))),
+                              Expanded(
+                                  child: Text(
+                                      '${e.data.toStringAsFixed(2)} (${e.percentage.toStringAsFixed(2)}%)',
+                                      style: getTextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.w700))),
                             ],
                           ),
                           const SizedBox(height: 6),
                           Row(
                             children: [
-                              Text('Cost', style: getTextStyle(fontSize: 13, color: Colors.grey.shade700)),
+                              Text('Cost',
+                                  style: getTextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade700)),
                               const SizedBox(width: 8),
-                              Text(':', style: getTextStyle(fontSize: 13, color: Colors.grey.shade700)),
+                              Text(':',
+                                  style: getTextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade700)),
                               const SizedBox(width: 8),
-                              Text('${e.cost.toStringAsFixed(0)} ৳', style: getTextStyle(fontSize: 13, fontWeight: FontWeight.w700)),
+                              Text('${e.cost.toStringAsFixed(0)} ৳',
+                                  style: getTextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w700)),
                             ],
                           ),
                         ],
@@ -112,4 +148,3 @@ class EnergyChartCard extends StatelessWidget {
     );
   }
 }
-

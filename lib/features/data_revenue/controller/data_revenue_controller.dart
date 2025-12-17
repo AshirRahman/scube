@@ -14,8 +14,8 @@ class DataRevenueController extends GetxController {
   RxBool isExpanded = true.obs;
 
   // Metric value
-  RxDouble metricValue = 5.53.obs;
-  RxString metricUnit = "kw".obs;
+  RxDouble metricValue = 55.00.obs;
+  RxString metricUnit = "kWh/Sqft".obs;
 
   // Dummy list
   RxList<DataCostModel> dataCostList = <DataCostModel>[
@@ -49,8 +49,8 @@ class DataRevenueController extends GetxController {
     selectedView.value = type;
 
     if (type == DataRevenueViewType.data) {
-      metricValue.value = 5.53;
-      metricUnit.value = "kw";
+      metricValue.value = 55.00;
+      metricUnit.value = "kWh/Sqft";
     } else {
       metricValue.value = 8897455;
       metricUnit.value = "tk";

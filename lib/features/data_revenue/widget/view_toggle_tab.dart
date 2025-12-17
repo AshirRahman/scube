@@ -18,31 +18,31 @@ class ViewToggleTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(() {
       return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+        padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: Colors.grey.shade300),
         ),
         child: Row(
-          children: DataRevenueViewType.values.map((e) {
-            final isActive = selected.value == e;
+          children: DataRevenueViewType.values.map((type) {
+            final bool isActive = selected.value == type;
+
             return Expanded(
               child: InkWell(
                 borderRadius: BorderRadius.circular(16),
-                onTap: () => onTap(e),
+                onTap: () => onTap(type),
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // indicator: blue filled with inner white for active, grey ring for inactive
+                      // Indicator
                       Container(
                         width: 18,
                         height: 18,
                         decoration: BoxDecoration(
-                          color: isActive ? Colors.white : Colors.transparent,
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: isActive
@@ -52,37 +52,32 @@ class ViewToggleTab extends StatelessWidget {
                           ),
                         ),
                         child: Center(
-                          child: isActive
-                              ? Container(
-                                  width: 8,
-                                  height: 8,
-                                  decoration: const BoxDecoration(
-                                    color: AppColors.primary,
-                                    shape: BoxShape.circle,
-                                  ),
-                                )
-                              : Container(
-                                  width: 8,
-                                  height: 8,
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.shade400,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
+                          child: Container(
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                              color: isActive
+                                  ? AppColors.primary
+                                  : Colors.grey.shade400,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
                         ),
                       ),
+
                       const SizedBox(width: 10),
 
+                      // 🔹 Label
                       Text(
-                        e == DataRevenueViewType.data
-                            ? 'Data View'
-                            : 'Revenue View',
+                        type == DataRevenueViewType.data
+                            ? "Data View"
+                            : "Revenue View",
                         style: getTextStyle(
                           fontSize: 16,
+                          fontWeight: FontWeight.w600,
                           color: isActive
                               ? AppColors.primary
                               : Colors.grey.shade600,
-                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],

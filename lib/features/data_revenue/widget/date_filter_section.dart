@@ -20,34 +20,148 @@ class DateFilterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
+      final isCustom = isCustomDate.value;
+
       return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // 🔹 Toggle
+          // Toggle Options
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _radio(
-                selected: !isCustomDate.value,
-                label: "Today Data",
+              GestureDetector(
                 onTap: onTodayTap,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 18,
+                      height: 18,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: !isCustom
+                              ? AppColors.primary
+                              : Colors.grey.shade400,
+                          width: !isCustom ? 2 : 1.6,
+                        ),
+                      ),
+                      child: Center(
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: !isCustom
+                                ? AppColors.primary
+                                : Colors.grey.shade400,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      "Today Data",
+                      style: getTextStyle(
+                        fontSize: 13,
+                        color: !isCustom ? AppColors.primary : Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(width: 16),
-              _radio(
-                selected: isCustomDate.value,
-                label: "Custom Date Data",
+              GestureDetector(
                 onTap: onCustomTap,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 18,
+                      height: 18,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: isCustom
+                              ? AppColors.primary
+                              : Colors.grey.shade400,
+                          width: isCustom ? 2 : 1.6,
+                        ),
+                      ),
+                      child: Center(
+                        child: Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: isCustom
+                                ? AppColors.primary
+                                : Colors.grey.shade400,
+                            shape: BoxShape.circle,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      "Custom Date Data",
+                      style: getTextStyle(
+                        fontSize: 13,
+                        color: isCustom ? AppColors.primary : Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
 
-          if (isCustomDate.value) ...[
+          // Custom Date Picker
+          if (isCustom) ...[
             const SizedBox(height: 12),
             Row(
               children: [
-                _dateBox("From Date"),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 12),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey.shade300),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "From Date",
+                            style:
+                                getTextStyle(fontSize: 12, color: Colors.grey),
+                          ),
+                        ),
+                        const Icon(Icons.calendar_today, size: 14),
+                      ],
+                    ),
+                  ),
+                ),
                 const SizedBox(width: 8),
-                _dateBox("To Date"),
+                Expanded(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 12),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey.shade300),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "To Date",
+                            style:
+                                getTextStyle(fontSize: 12, color: Colors.grey),
+                          ),
+                        ),
+                        const Icon(Icons.calendar_today, size: 14),
+                      ],
+                    ),
+                  ),
+                ),
                 const SizedBox(width: 8),
                 GestureDetector(
                   onTap: onSearchTap,
@@ -62,79 +176,12 @@ class DateFilterSection extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                )
+                ),
               ],
-            )
-          ]
+            ),
+          ],
         ],
       );
     });
-  }
-
-  Widget _radio({
-    required bool selected,
-    required String label,
-    required VoidCallback onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Row(
-        children: [
-          Container(
-            width: 18,
-            height: 18,
-            decoration: BoxDecoration(
-              color: selected ? Colors.white : Colors.transparent,
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: selected ? AppColors.primary : Colors.grey.shade400,
-                width: selected ? 2 : 1.6,
-              ),
-            ),
-            child: Center(
-              child: Container(
-                width: 8,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: selected ? AppColors.primary : Colors.grey.shade400,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 6),
-          Text(
-            label,
-            style: getTextStyle(
-              fontSize: 13,
-              color: selected ? AppColors.primary : Colors.grey,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _dateBox(String text) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey.shade300),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                text,
-                style: getTextStyle(fontSize: 12, color: Colors.grey),
-              ),
-            ),
-            const Icon(Icons.calendar_today, size: 14),
-          ],
-        ),
-      ),
-    );
   }
 }

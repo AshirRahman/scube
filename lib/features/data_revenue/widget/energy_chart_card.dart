@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
-import 'package:scube/core/utils/constants/colors.dart';
 import '../model/data_cost_model.dart';
 
 class EnergyChartCard extends StatelessWidget {

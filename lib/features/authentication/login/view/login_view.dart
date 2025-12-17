@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:scube/core/common/styles/global_text_style.dart';
 import 'package:scube/core/common/widgets/custom_button.dart';
 import 'package:scube/core/common/widgets/custom_textfield.dart';
 import 'package:scube/core/utils/constants/colors.dart';
-import 'package:scube/core/common/styles/global_text_style.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:scube/core/utils/constants/image_path.dart';
 import '../controller/login_controller.dart';
 
@@ -19,7 +19,7 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // 🔵 Top Section
+            // Header section
             Expanded(
               flex: 3,
               child: Column(
@@ -52,7 +52,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
 
-            // ⚪ Login Card
+            // Login section
             Expanded(
               flex: 4,
               child: Container(
@@ -67,6 +67,7 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Title
                       Center(
                         child: Text(
                           "Login",
@@ -77,9 +78,10 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+
                       const SizedBox(height: 24),
 
-                      // 👤 Username
+                      // Username
                       CustomTextField(
                         controller: controller.usernameController,
                         hintText: "Username",
@@ -88,7 +90,7 @@ class LoginScreen extends StatelessWidget {
 
                       const SizedBox(height: 16),
 
-                      // 🔐 Password (GetX controlled)
+                      // Password
                       CustomTextField(
                         controller: controller.passwordController,
                         hintText: "Password",
@@ -98,21 +100,24 @@ class LoginScreen extends StatelessWidget {
                         onToggle: controller.togglePasswordVisibility,
                       ),
 
+                      // Forgot password
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {},
-                          child: Text("Forget password?",
-                              style: getTextStyle(
-                                fontSize: 14,
-                                color: AppColors.primary,
-                              )),
+                          child: Text(
+                            "Forget password?",
+                            style: getTextStyle(
+                              fontSize: 14,
+                              color: AppColors.primary,
+                            ),
+                          ),
                         ),
                       ),
 
                       const SizedBox(height: 16),
 
-                      // 🔘 Login Button
+                      // Login Button
                       Obx(() {
                         return CustomButton(
                           title: "Login",
@@ -123,6 +128,7 @@ class LoginScreen extends StatelessWidget {
 
                       const SizedBox(height: 16),
 
+                      // Register text
                       Center(
                         child: RichText(
                           text: TextSpan(

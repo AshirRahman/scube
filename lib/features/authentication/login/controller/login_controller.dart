@@ -4,30 +4,35 @@ import 'package:scube/features/dashboard/screen/dashboard_screen.dart';
 import '../model/login_model.dart';
 
 class LoginController extends GetxController {
+  // Text Controllers
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  RxBool isPasswordHidden = true.obs;
+  // UI States
+  final isPasswordHidden = true.obs;
+  final isLoading = false.obs;
 
-  RxBool isLoading = false.obs;
-
+  // Toggle password visibility
   void togglePasswordVisibility() {
     isPasswordHidden.toggle();
   }
 
-  void login() async {
+  // Login action
+  Future<void> login() async {
     isLoading.value = true;
 
-    final model = LoginModel(
+    final loginData = LoginModel(
       username: usernameController.text.trim(),
       password: passwordController.text,
     );
 
-    // TODO: API call
-    await Future.delayed(const Duration(seconds: 0));
+    // TODO: API integration
+    await Future.delayed(const Duration(milliseconds: 300));
 
-    debugPrint("LOGIN DATA => ${model.toString()}");
-    Get.to(DashboardScreen());
+    debugPrint("LOGIN DATA => ${loginData.toJson()}");
+
+    // Navigate after success
+    Get.off(() => DashboardScreen());
 
     isLoading.value = false;
   }

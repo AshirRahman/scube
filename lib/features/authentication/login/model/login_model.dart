@@ -13,7 +13,4 @@ class LoginModel {
       "password": password,
     };
   }
-
-  @override
-  String toString() => toJson().toString();
 }

@@ -4,9 +4,11 @@ import 'package:scube/features/dashboard/model/dashboard_feature_model.dart';
 import '../model/power_summary_model.dart';
 
 class DashboardController extends GetxController {
-  RxInt selectedTab = 0.obs; // Summary / SLD / Data
-  RxInt sourceLoad = 0.obs; // Source / Load
+  // 🔹 UI State
+  final selectedTab = 0.obs; // Summary / SLD / Data
+  final sourceLoad = 0.obs; // Source / Load
 
+  // 🔹 Power Summary
   final powerList = <PowerSummaryModel>[
     PowerSummaryModel(
       title: "Data View",
@@ -29,15 +31,9 @@ class DashboardController extends GetxController {
       data2: 58805.63,
       icon: IconPath.networkTower,
     ),
-    PowerSummaryModel(
-      title: "Data Type 3",
-      isActive: false,
-      data1: 55505.63,
-      data2: 58805.63,
-      icon: IconPath.networkTower,
-    ),
   ].obs;
 
+  // 🔹 Feature Grid
   final featureList = <DashboardFeatureModel>[
     DashboardFeatureModel(
       title: "Analysis Pro",

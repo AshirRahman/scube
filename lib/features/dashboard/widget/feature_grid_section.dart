@@ -5,7 +5,7 @@ import '../model/dashboard_feature_model.dart';
 
 class FeatureGridSection extends StatelessWidget {
   final List<DashboardFeatureModel> items;
-  final void Function(DashboardFeatureModel item)? onTap;
+  final ValueChanged<DashboardFeatureModel>? onTap;
 
   const FeatureGridSection({
     super.key,
@@ -27,13 +27,14 @@ class FeatureGridSection extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         final item = items[index];
+        final isEnabled = item.isEnabled;
 
         return GestureDetector(
-          onTap: item.isEnabled ? () => onTap?.call(item) : null,
+          onTap: isEnabled ? () => onTap?.call(item) : null,
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
-              color: item.isEnabled ? AppColors.white : Colors.grey.shade200,
+              color: isEnabled ? AppColors.white : Colors.grey.shade200,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
                 color: AppColors.primary.withOpacity(0.25),
@@ -50,10 +51,12 @@ class FeatureGridSection extends StatelessWidget {
                 Expanded(
                   child: Text(
                     item.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: getTextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: item.isEnabled ? Colors.black : Colors.grey,
+                      color: isEnabled ? Colors.black : Colors.grey,
                     ),
                   ),
                 ),

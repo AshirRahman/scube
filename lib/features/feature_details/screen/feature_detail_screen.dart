@@ -13,19 +13,26 @@ class FeatureDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffeaf4ff),
+
+      // App Bar
       appBar: CustomAppBar(
         title: feature?.title ?? '',
         showBack: true,
-        onBack: () => Get.back(),
+        onBack: Get.back,
       ),
+
+      // Body
       body: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(24),
         child: Container(
+          width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: Colors.grey.shade300),
           ),
+
+          // No data state
           child: Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,

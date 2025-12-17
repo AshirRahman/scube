@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
+import 'package:scube/core/utils/constants/colors.dart';
 
 class SourceLoadToggle extends StatelessWidget {
   final RxInt selectedIndex;
   final List<String> options;
-  final Function(int) onTap;
+  final ValueChanged<int> onTap;
 
   const SourceLoadToggle({
     super.key,
@@ -17,8 +17,8 @@ class SourceLoadToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() {
-      return SizedBox(
+    return Obx(
+      () => SizedBox(
         width: 200,
         child: Container(
           decoration: BoxDecoration(
@@ -26,35 +26,36 @@ class SourceLoadToggle extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
-            children: options.asMap().entries.map((e) {
+            children: List.generate(options.length, (index) {
+              final isSelected = selectedIndex.value == index;
+
               return Expanded(
                 child: GestureDetector(
-                  onTap: () => onTap(e.key),
+                  onTap: () => onTap(index),
                   child: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: selectedIndex.value == e.key
-                          ? AppColors.primary
-                          : Colors.transparent,
+                      color:
+                          isSelected ? AppColors.primary : Colors.transparent,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Center(
                       child: Text(
-                        e.value,
+                        options[index],
                         style: getTextStyle(
-                          color: selectedIndex.value == e.key
-                              ? Colors.white
-                              : Colors.grey,
+                          color: isSelected ? Colors.white : Colors.grey,
+                          fontWeight:
+                              isSelected ? FontWeight.w600 : FontWeight.w400,
                         ),
                       ),
                     ),
                   ),
                 ),
               );
-            }).toList(),
+            }),
           ),
         ),
-      );
-    });
+      ),
+    );
   }
 }

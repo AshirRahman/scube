@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
+import 'package:scube/core/utils/constants/colors.dart';
 
 class PowerCircle extends StatelessWidget {
   final String title;
@@ -19,17 +19,27 @@ class PowerCircle extends StatelessWidget {
       width: 160,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(color: AppColors.primary, width: 12),
+        border: Border.all(
+          color: AppColors.primary,
+          width: 12,
+        ),
       ),
+      alignment: Alignment.center,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text(title, style: getTextStyle(fontSize: 12)),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: getTextStyle(fontSize: 12),
+          ),
+          const SizedBox(height: 4),
           Text(
             value,
+            textAlign: TextAlign.center,
             style: getTextStyle(
-              fontWeight: FontWeight.bold,
               fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ],

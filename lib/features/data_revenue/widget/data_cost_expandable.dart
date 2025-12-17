@@ -19,6 +19,8 @@ class DataCostExpandable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
+      final isExpanded = expanded.value;
+
       return Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey.shade300),
@@ -26,6 +28,7 @@ class DataCostExpandable extends StatelessWidget {
         ),
         child: Column(
           children: [
+            // ================= HEADER =================
             GestureDetector(
               onTap: onToggle,
               child: Padding(
@@ -40,7 +43,7 @@ class DataCostExpandable extends StatelessWidget {
                     ),
                     const Spacer(),
                     Image.asset(
-                      expanded.value ? IconPath.upArrow : IconPath.downArrow,
+                      isExpanded ? IconPath.upArrow : IconPath.downArrow,
                       width: 20,
                       height: 20,
                     ),
@@ -48,7 +51,9 @@ class DataCostExpandable extends StatelessWidget {
                 ),
               ),
             ),
-            if (expanded.value) ...[
+
+            // ================= EXPANDED CONTENT =================
+            if (isExpanded) ...[
               Divider(height: 1, color: Colors.grey.shade300),
               Padding(
                 padding: const EdgeInsets.all(12),
@@ -57,6 +62,7 @@ class DataCostExpandable extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
                             children: [

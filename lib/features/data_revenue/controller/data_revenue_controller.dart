@@ -4,21 +4,19 @@ import '../model/data_cost_model.dart';
 enum DataRevenueViewType { data, revenue }
 
 class DataRevenueController extends GetxController {
-  // View toggle
-  Rx<DataRevenueViewType> selectedView = DataRevenueViewType.data.obs;
+  // View State
+  final selectedView = DataRevenueViewType.data.obs;
 
-  // Date filter
-  RxBool isCustomDate = false.obs;
+  // UI State
+  final isCustomDate = false.obs;
+  final isExpanded = true.obs;
 
-  // Expand collapse
-  RxBool isExpanded = true.obs;
+  // Metric
+  final metricValue = 55.0.obs;
+  final metricUnit = "kWh/Sqft".obs;
 
-  // Metric value
-  RxDouble metricValue = 55.00.obs;
-  RxString metricUnit = "kWh/Sqft".obs;
-
-  // Dummy list
-  RxList<DataCostModel> dataCostList = <DataCostModel>[
+  // Data
+  final dataCostList = <DataCostModel>[
     DataCostModel(
       label: "Data A",
       data: 2798.50,
@@ -45,11 +43,12 @@ class DataRevenueController extends GetxController {
     ),
   ].obs;
 
+  // Actions
   void toggleView(DataRevenueViewType type) {
     selectedView.value = type;
 
     if (type == DataRevenueViewType.data) {
-      metricValue.value = 55.00;
+      metricValue.value = 55.0;
       metricUnit.value = "kWh/Sqft";
     } else {
       metricValue.value = 8897455;

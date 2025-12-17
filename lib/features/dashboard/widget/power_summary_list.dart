@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
 import 'package:scube/core/utils/constants/colors.dart';
 import '../model/power_summary_model.dart';
 
 class PowerSummaryList extends StatelessWidget {
   final List<PowerSummaryModel> items;
-  final void Function(PowerSummaryModel item)? onItemTap;
+  final ValueChanged<PowerSummaryModel>? onItemTap;
   final EdgeInsetsGeometry padding;
 
   const PowerSummaryList({
@@ -18,8 +17,15 @@ class PowerSummaryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Empty state
     if (items.isEmpty) {
-      return _emptyState();
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        child: Text(
+          "No data available",
+          style: getTextStyle(color: Colors.grey),
+        ),
+      );
     }
 
     return ListView.builder(
@@ -29,6 +35,7 @@ class PowerSummaryList extends StatelessWidget {
       itemCount: items.length,
       itemBuilder: (context, index) {
         final item = items[index];
+        final isActive = item.isActive;
 
         return GestureDetector(
           onTap: () => onItemTap?.call(item),
@@ -52,7 +59,7 @@ class PowerSummaryList extends StatelessWidget {
 
                 const SizedBox(width: 12),
 
-                // 🔹 TEXT
+                // Text
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,10 +74,10 @@ class PowerSummaryList extends StatelessWidget {
                           ),
                           const SizedBox(width: 6),
                           Text(
-                            item.isActive ? "(Active)" : "(Inactive)",
+                            isActive ? "(Active)" : "(Inactive)",
                             style: getTextStyle(
                               fontSize: 12,
-                              color: item.isActive ? Colors.green : Colors.red,
+                              color: isActive ? Colors.green : Colors.red,
                             ),
                           ),
                         ],
@@ -98,17 +105,6 @@ class PowerSummaryList extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-
-  // 🔹 Empty state (optional)
-  Widget _emptyState() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24),
-      child: Text(
-        "No data available",
-        style: getTextStyle(color: Colors.grey),
-      ),
     );
   }
 }

@@ -56,7 +56,7 @@ class LoginView extends StatelessWidget {
                       style: getTextStyle(
                         fontSize: 16,
                         color: AppColors.white,
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ],

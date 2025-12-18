@@ -5,12 +5,12 @@ import 'package:scube/core/common/widgets/custom_appbar.dart';
 import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/features/dashboard/controller/dashboard_controller.dart';
 import 'package:scube/features/dashboard/widget/dashboard_tabs.dart';
-import 'package:scube/features/dashboard/widget/feature_grid_section.dart';
+import 'package:scube/features/dashboard/widget/category_grid_section.dart';
 import 'package:scube/features/dashboard/widget/power_circle.dart';
 import 'package:scube/features/dashboard/widget/power_summary_list.dart';
 import 'package:scube/features/dashboard/widget/source_load_toggle.dart';
 import 'package:scube/features/data_revenue/screen/data_revenue_screen.dart';
-import 'package:scube/features/feature_details/screen/feature_detail_screen.dart';
+import 'package:scube/features/category_details/screen/category_details_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   DashboardScreen({super.key});
@@ -39,7 +39,7 @@ class DashboardScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: AppColors.grey300),
+                border: Border.all(color: AppColors.grey400),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -113,11 +113,11 @@ class DashboardScreen extends StatelessWidget {
 
             const SizedBox(height: 16),
 
-            // Feature grid section
-            FeatureGridSection(
+            // Category grid section
+            CategoryGridSection(
               items: controller.featureList,
               onTap: (item) {
-                Get.to(FeatureDetailScreen(feature: item));
+                Get.to(CategoryDetailScreen(feature: item));
               },
             ),
           ],

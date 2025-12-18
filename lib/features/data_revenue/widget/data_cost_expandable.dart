@@ -24,12 +24,12 @@ class DataCostExpandable extends StatelessWidget {
 
       return Container(
         decoration: BoxDecoration(
-          border: Border.all(color: AppColors.grey300),
+          border: Border.all(color: AppColors.grey400),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
           children: [
-            // ================= HEADER =================
+            // Header
             GestureDetector(
               onTap: onToggle,
               child: Padding(
@@ -53,13 +53,16 @@ class DataCostExpandable extends StatelessWidget {
               ),
             ),
 
-            // ================= EXPANDED CONTENT =================
+            // Expanded content
             if (isExpanded) ...[
-              Divider(height: 1, color: AppColors.grey300),
+              Divider(height: 1, color: AppColors.grey400),
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
-                  children: items.map((e) {
+                  children: items.asMap().entries.map((entry) {
+                    final index = entry.key;
+                    final e = entry.value;
+
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       child: Column(
@@ -68,7 +71,7 @@ class DataCostExpandable extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "Data ${e.label} : ",
+                                "Data ${index + 1} : ",
                                 style: getTextStyle(
                                   fontSize: 13,
                                   color: AppColors.grey700,
@@ -87,7 +90,7 @@ class DataCostExpandable extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "Cost ${e.label} : ",
+                                "Cost ${index + 1} : ",
                                 style: getTextStyle(
                                   fontSize: 13,
                                   color: AppColors.grey700,

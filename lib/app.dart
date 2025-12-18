@@ -10,7 +10,6 @@ class ScubeTechnologies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       minTextAdapt: true,
@@ -21,7 +20,7 @@ class ScubeTechnologies extends StatelessWidget {
           initialRoute: AppRoute.loginScreen,
           getPages: AppRoute.routes,
           initialBinding: ControllerBinder(),
-          themeMode: ThemeMode.system,
+          themeMode: ThemeMode.light,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
         );

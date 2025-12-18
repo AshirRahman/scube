@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:scube/features/authentication/login/view/login_view.dart';
-import 'package:scube/features/feature_details/screen/feature_detail_screen.dart';
+import 'package:scube/features/category_details/screen/category_details_screen.dart';
 // import '../features/home/screen/home_screen.dart';
 
 class AppRoute {
@@ -19,7 +19,7 @@ class AppRoute {
     ),
     GetPage(
       name: featureDetailsScreen,
-      page: () => FeatureDetailScreen(),
+      page: () => const CategoryDetailScreen(),
     ),
     // GetPage(name: homeScreen, page: () => const HomeScreen()),
   ];

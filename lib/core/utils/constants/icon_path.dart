@@ -10,4 +10,5 @@ class IconPath {
   static const String solarCell = 'assets/icons/solarCell.png';
   static const String tubewell = 'assets/icons/tubewell.png';
   static const String upArrow = 'assets/icons/up_arrow.png';
+  static const String notification = 'assets/icons/notification.png';
 }

@@ -21,7 +21,7 @@ class EnergyChartCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: AppColors.grey300),
+        border: Border.all(color: AppColors.grey400),
         color: AppColors.white,
       ),
       child: Column(
@@ -60,7 +60,7 @@ class EnergyChartCard extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: AppColors.grey300),
+                  border: Border.all(color: AppColors.grey400),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,

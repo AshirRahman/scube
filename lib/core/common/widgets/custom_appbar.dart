@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
+import 'package:scube/core/utils/constants/icon_path.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -59,7 +60,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 else
                   const SizedBox(width: 22),
 
-                // 📌 Title
+                // Title
                 Expanded(
                   child: Center(
                     child: Text(
@@ -73,33 +74,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
 
-                // 🔔 Notification
+                // Notification
                 GestureDetector(
-                  onTap: onNotificationTap,
-                  child: Stack(
-                    clipBehavior: Clip.none,
-                    children: [
-                      const Icon(
-                        Icons.notifications_none,
-                        size: 26,
-                        color: AppColors.black,
-                      ),
-                      if (showNotificationDot)
-                        Positioned(
-                          right: 0,
-                          top: 0,
-                          child: Container(
-                            height: 8,
-                            width: 8,
-                            decoration: const BoxDecoration(
-                              color: AppColors.red,
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
+                    onTap: onNotificationTap,
+                    child: Image.asset(IconPath.notification,
+                        width: 24, height: 24)),
               ],
             ),
           ),

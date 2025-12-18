@@ -5,10 +5,10 @@ import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/utils/constants/image_path.dart';
 import '../../dashboard/model/dashboard_feature_model.dart';
 
-class FeatureDetailScreen extends StatelessWidget {
+class CategoryDetailScreen extends StatelessWidget {
   final DashboardFeatureModel? feature;
 
-  const FeatureDetailScreen({super.key, this.feature});
+  const CategoryDetailScreen({super.key, this.feature});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class FeatureDetailScreen extends StatelessWidget {
 
       // App Bar
       appBar: CustomAppBar(
-        title: feature?.title ?? '',
+        title: 'SCM',
         showBack: true,
         onBack: Get.back,
       ),

@@ -3,11 +3,11 @@ import 'package:scube/core/common/styles/global_text_style.dart';
 import 'package:scube/core/utils/constants/colors.dart';
 import '../model/dashboard_feature_model.dart';
 
-class FeatureGridSection extends StatelessWidget {
+class CategoryGridSection extends StatelessWidget {
   final List<DashboardFeatureModel> items;
   final ValueChanged<DashboardFeatureModel>? onTap;
 
-  const FeatureGridSection({
+  const CategoryGridSection({
     super.key,
     required this.items,
     this.onTap,
@@ -37,7 +37,7 @@ class FeatureGridSection extends StatelessWidget {
               color: isEnabled ? AppColors.white : AppColors.grey200,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: AppColors.primary.withValues(alpha: 0.25),
+                color: AppColors.grey400,
               ),
             ),
             child: Row(

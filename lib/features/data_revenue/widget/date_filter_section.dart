@@ -120,7 +120,7 @@ class DateFilterSection extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 12),
                     decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.grey300),
+                      border: Border.all(color: AppColors.grey400),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
@@ -143,7 +143,7 @@ class DateFilterSection extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 12),
                     decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.grey300),
+                      border: Border.all(color: AppColors.grey400),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
@@ -166,12 +166,13 @@ class DateFilterSection extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: AppColors.primary,
+                      color: AppColors.primary.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: AppColors.primary),
                     ),
                     child: const Icon(
                       Icons.search,
-                      color: AppColors.white,
+                      color: AppColors.primary,
                     ),
                   ),
                 ),

@@ -22,7 +22,7 @@ class ViewToggleTab extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.grey300),
+          border: Border.all(color: AppColors.grey400),
         ),
         child: Row(
           children: DataRevenueViewType.values.map((type) {

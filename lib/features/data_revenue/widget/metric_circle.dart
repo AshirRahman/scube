@@ -28,22 +28,22 @@ class MetricCircle extends StatelessWidget {
         child: SfRadialGauge(
           axes: <RadialAxis>[
             RadialAxis(
-              startAngle: 150,
-              endAngle: 30,
+              startAngle: 130,
+              endAngle: 50,
               minimum: 0,
               maximum: maxValue,
               radiusFactor: 0.8,
               showLabels: false,
               showTicks: false,
               axisLineStyle: const AxisLineStyle(
-                thickness: 12,
+                thickness: 15,
                 color: Color(0xFFE8F1FF),
                 cornerStyle: CornerStyle.bothCurve,
               ),
               pointers: <GaugePointer>[
                 RangePointer(
                   value: gaugeValue,
-                  width: 12,
+                  width: 15,
                   color: AppColors.primary,
                   cornerStyle: CornerStyle.bothCurve,
                   enableAnimation: true,

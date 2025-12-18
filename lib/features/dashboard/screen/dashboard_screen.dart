@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
 import 'package:scube/core/common/widgets/custom_appbar.dart';
+import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/features/dashboard/controller/dashboard_controller.dart';
 import 'package:scube/features/dashboard/widget/dashboard_tabs.dart';
 import 'package:scube/features/dashboard/widget/feature_grid_section.dart';
@@ -36,9 +37,9 @@ class DashboardScreen extends StatelessWidget {
             // Main summary section
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.white,
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: Colors.grey.shade300),
+                border: Border.all(color: AppColors.grey300),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +65,12 @@ class DashboardScreen extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 8),
-                  const Divider(),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Divider(
+                      thickness: 2,
+                    ),
+                  ),
 
                   // Power Circle
                   const Center(
@@ -86,11 +92,14 @@ class DashboardScreen extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 8),
-                  const Divider(),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Divider(thickness: 2),
+                  ),
 
                   // Power Summary List
                   Padding(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
                     child: PowerSummaryList(
                       items: controller.powerList,
                       onItemTap: (_) {

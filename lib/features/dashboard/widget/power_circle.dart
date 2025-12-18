@@ -21,7 +21,7 @@ class PowerCircle extends StatelessWidget {
         shape: BoxShape.circle,
         border: Border.all(
           color: AppColors.primary,
-          width: 12,
+          width: 15,
         ),
       ),
       alignment: Alignment.center,

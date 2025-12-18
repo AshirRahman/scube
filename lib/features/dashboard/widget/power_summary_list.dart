@@ -23,7 +23,7 @@ class PowerSummaryList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 24),
         child: Text(
           "No data available",
-          style: getTextStyle(color: Colors.grey),
+          style: getTextStyle(color: AppColors.grey),
         ),
       );
     }
@@ -77,7 +77,7 @@ class PowerSummaryList extends StatelessWidget {
                             isActive ? "(Active)" : "(Inactive)",
                             style: getTextStyle(
                               fontSize: 12,
-                              color: isActive ? Colors.green : Colors.red,
+                              color: isActive ? AppColors.green : AppColors.red,
                             ),
                           ),
                         ],

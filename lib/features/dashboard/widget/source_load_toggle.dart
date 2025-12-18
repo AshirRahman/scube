@@ -22,7 +22,7 @@ class SourceLoadToggle extends StatelessWidget {
         width: 200,
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.grey200,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -43,7 +43,8 @@ class SourceLoadToggle extends StatelessWidget {
                       child: Text(
                         options[index],
                         style: getTextStyle(
-                          color: isSelected ? Colors.white : Colors.grey,
+                          color:
+                              isSelected ? AppColors.white : AppColors.grey600,
                           fontWeight:
                               isSelected ? FontWeight.w600 : FontWeight.w400,
                         ),

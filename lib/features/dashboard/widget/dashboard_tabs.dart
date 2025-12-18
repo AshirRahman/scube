@@ -47,7 +47,7 @@ class DashboardTabs extends StatelessWidget {
                     child: Text(
                       tabs[index],
                       style: getTextStyle(
-                        color: isSelected ? Colors.white : Colors.grey,
+                        color: isSelected ? AppColors.white : AppColors.grey,
                         fontWeight:
                             isSelected ? FontWeight.w600 : FontWeight.w400,
                       ),

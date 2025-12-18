@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
+import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/utils/constants/icon_path.dart';
 import '../model/data_cost_model.dart';
 
@@ -23,7 +24,7 @@ class DataCostExpandable extends StatelessWidget {
 
       return Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey.shade300),
+          border: Border.all(color: AppColors.grey300),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -54,7 +55,7 @@ class DataCostExpandable extends StatelessWidget {
 
             // ================= EXPANDED CONTENT =================
             if (isExpanded) ...[
-              Divider(height: 1, color: Colors.grey.shade300),
+              Divider(height: 1, color: AppColors.grey300),
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: Column(
@@ -70,7 +71,7 @@ class DataCostExpandable extends StatelessWidget {
                                 "Data ${e.label} : ",
                                 style: getTextStyle(
                                   fontSize: 13,
-                                  color: Colors.grey.shade700,
+                                  color: AppColors.grey700,
                                 ),
                               ),
                               Text(
@@ -89,7 +90,7 @@ class DataCostExpandable extends StatelessWidget {
                                 "Cost ${e.label} : ",
                                 style: getTextStyle(
                                   fontSize: 13,
-                                  color: Colors.grey.shade700,
+                                  color: AppColors.grey700,
                                 ),
                               ),
                               Text(

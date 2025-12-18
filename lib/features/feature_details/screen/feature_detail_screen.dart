@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scube/core/common/widgets/custom_appbar.dart';
+import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/utils/constants/image_path.dart';
 import '../../dashboard/model/dashboard_feature_model.dart';
 
@@ -27,9 +28,9 @@ class FeatureDetailScreen extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.grey.shade300),
+            border: Border.all(color: AppColors.grey300),
           ),
 
           // No data state

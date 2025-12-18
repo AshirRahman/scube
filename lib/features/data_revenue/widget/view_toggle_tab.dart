@@ -20,9 +20,9 @@ class ViewToggleTab extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.all(6),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.grey.shade300),
+          border: Border.all(color: AppColors.grey300),
         ),
         child: Row(
           children: DataRevenueViewType.values.map((type) {
@@ -47,7 +47,7 @@ class ViewToggleTab extends StatelessWidget {
                           border: Border.all(
                             color: isActive
                                 ? AppColors.primary
-                                : Colors.grey.shade400,
+                                : AppColors.grey400,
                             width: isActive ? 2 : 1.6,
                           ),
                         ),
@@ -75,9 +75,8 @@ class ViewToggleTab extends StatelessWidget {
                         style: getTextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: isActive
-                              ? AppColors.primary
-                              : Colors.grey.shade600,
+                          color:
+                              isActive ? AppColors.primary : AppColors.grey600,
                         ),
                       ),
                     ],

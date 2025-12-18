@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scube/core/common/styles/global_text_style.dart';
+import 'package:scube/core/utils/constants/colors.dart';
 import '../model/data_cost_model.dart';
 
 class EnergyChartCard extends StatelessWidget {
@@ -20,8 +21,8 @@ class EnergyChartCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.grey.shade300),
-        color: Colors.white,
+        border: Border.all(color: AppColors.grey300),
+        color: AppColors.white,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,10 +46,10 @@ class EnergyChartCard extends StatelessWidget {
             final idx = entry.key;
             final e = entry.value;
             final dotColors = [
-              Colors.blueAccent,
-              Colors.lightBlue,
-              Colors.purpleAccent,
-              Colors.orangeAccent,
+              AppColors.blueAccent,
+              AppColors.lightBlue,
+              AppColors.purpleAccent,
+              AppColors.orangeAccent,
             ];
             final dotColor = dotColors[idx % dotColors.length];
 
@@ -59,7 +60,7 @@ class EnergyChartCard extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.grey.shade300),
+                  border: Border.all(color: AppColors.grey300),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -88,7 +89,7 @@ class EnergyChartCard extends StatelessWidget {
                         width: 2,
                         height: 48,
                         decoration: BoxDecoration(
-                            color: Colors.grey.shade300,
+                            color: AppColors.grey300,
                             borderRadius: BorderRadius.circular(2))),
                     const SizedBox(width: 12),
                     Expanded(
@@ -99,13 +100,11 @@ class EnergyChartCard extends StatelessWidget {
                             children: [
                               Text('Data',
                                   style: getTextStyle(
-                                      fontSize: 13,
-                                      color: Colors.grey.shade700)),
+                                      fontSize: 13, color: AppColors.grey700)),
                               const SizedBox(width: 8),
                               Text(':',
                                   style: getTextStyle(
-                                      fontSize: 13,
-                                      color: Colors.grey.shade700)),
+                                      fontSize: 13, color: AppColors.grey700)),
                               const SizedBox(width: 8),
                               Expanded(
                                   child: Text(
@@ -120,13 +119,11 @@ class EnergyChartCard extends StatelessWidget {
                             children: [
                               Text('Cost',
                                   style: getTextStyle(
-                                      fontSize: 13,
-                                      color: Colors.grey.shade700)),
+                                      fontSize: 13, color: AppColors.grey700)),
                               const SizedBox(width: 8),
                               Text(':',
                                   style: getTextStyle(
-                                      fontSize: 13,
-                                      color: Colors.grey.shade700)),
+                                      fontSize: 13, color: AppColors.grey700)),
                               const SizedBox(width: 8),
                               Text('${e.cost.toStringAsFixed(0)} ৳',
                                   style: getTextStyle(

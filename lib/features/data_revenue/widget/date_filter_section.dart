@@ -38,9 +38,8 @@ class DateFilterSection extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: !isCustom
-                              ? AppColors.primary
-                              : Colors.grey.shade400,
+                          color:
+                              !isCustom ? AppColors.primary : AppColors.grey400,
                           width: !isCustom ? 2 : 1.6,
                         ),
                       ),
@@ -51,7 +50,7 @@ class DateFilterSection extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: !isCustom
                                 ? AppColors.primary
-                                : Colors.grey.shade400,
+                                : AppColors.grey400,
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -62,7 +61,7 @@ class DateFilterSection extends StatelessWidget {
                       "Today Data",
                       style: getTextStyle(
                         fontSize: 13,
-                        color: !isCustom ? AppColors.primary : Colors.grey,
+                        color: !isCustom ? AppColors.primary : AppColors.grey,
                       ),
                     ),
                   ],
@@ -79,9 +78,8 @@ class DateFilterSection extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: isCustom
-                              ? AppColors.primary
-                              : Colors.grey.shade400,
+                          color:
+                              isCustom ? AppColors.primary : AppColors.grey400,
                           width: isCustom ? 2 : 1.6,
                         ),
                       ),
@@ -92,7 +90,7 @@ class DateFilterSection extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: isCustom
                                 ? AppColors.primary
-                                : Colors.grey.shade400,
+                                : AppColors.grey400,
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -103,7 +101,7 @@ class DateFilterSection extends StatelessWidget {
                       "Custom Date Data",
                       style: getTextStyle(
                         fontSize: 13,
-                        color: isCustom ? AppColors.primary : Colors.grey,
+                        color: isCustom ? AppColors.primary : AppColors.grey,
                       ),
                     ),
                   ],
@@ -122,7 +120,7 @@ class DateFilterSection extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 12),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade300),
+                      border: Border.all(color: AppColors.grey300),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
@@ -130,8 +128,8 @@ class DateFilterSection extends StatelessWidget {
                         Expanded(
                           child: Text(
                             "From Date",
-                            style:
-                                getTextStyle(fontSize: 12, color: Colors.grey),
+                            style: getTextStyle(
+                                fontSize: 12, color: AppColors.grey),
                           ),
                         ),
                         const Icon(Icons.calendar_today, size: 14),
@@ -145,7 +143,7 @@ class DateFilterSection extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10, vertical: 12),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade300),
+                      border: Border.all(color: AppColors.grey300),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
@@ -153,8 +151,8 @@ class DateFilterSection extends StatelessWidget {
                         Expanded(
                           child: Text(
                             "To Date",
-                            style:
-                                getTextStyle(fontSize: 12, color: Colors.grey),
+                            style: getTextStyle(
+                                fontSize: 12, color: AppColors.grey),
                           ),
                         ),
                         const Icon(Icons.calendar_today, size: 14),
@@ -173,7 +171,7 @@ class DateFilterSection extends StatelessWidget {
                     ),
                     child: const Icon(
                       Icons.search,
-                      color: Colors.white,
+                      color: AppColors.white,
                     ),
                   ),
                 ),

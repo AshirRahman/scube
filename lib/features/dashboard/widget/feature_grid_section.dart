@@ -34,10 +34,10 @@ class FeatureGridSection extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             decoration: BoxDecoration(
-              color: isEnabled ? AppColors.white : Colors.grey.shade200,
+              color: isEnabled ? AppColors.white : AppColors.grey200,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: AppColors.primary.withOpacity(0.25),
+                color: AppColors.primary.withValues(alpha: 0.25),
               ),
             ),
             child: Row(
@@ -56,7 +56,7 @@ class FeatureGridSection extends StatelessWidget {
                     style: getTextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: isEnabled ? Colors.black : Colors.grey,
+                      color: isEnabled ? AppColors.black : AppColors.grey,
                     ),
                   ),
                 ),

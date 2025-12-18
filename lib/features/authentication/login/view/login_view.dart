@@ -17,38 +17,50 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: SafeArea(
+        top: true,
+        bottom: false,
         child: Column(
           children: [
             // Header section
             Expanded(
               flex: 3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    ImagePath.logo,
-                    width: 100,
-                    height: 100,
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                decoration: const BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(30),
                   ),
-                  const SizedBox(height: 16),
-                  Text(
-                    "SCUBE",
-                    style: getTextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      ImagePath.logo,
+                      width: 100,
+                      height: 100,
                     ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    "Control & Monitoring System",
-                    style: getTextStyle(
-                      fontSize: 16,
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w300,
+                    const SizedBox(height: 16),
+                    Text(
+                      "SCUBE",
+                      style: getTextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.white,
+                      ),
                     ),
-                  ),
-                ],
+                    const SizedBox(height: 4),
+                    Text(
+                      "Control & Monitoring System",
+                      style: getTextStyle(
+                        fontSize: 16,
+                        color: AppColors.white,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 
@@ -74,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                           style: getTextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: AppColors.black,
                           ),
                         ),
                       ),
@@ -105,11 +117,19 @@ class LoginScreen extends StatelessWidget {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {},
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            alignment: Alignment.centerRight,
+                          ),
                           child: Text(
                             "Forget password?",
                             style: getTextStyle(
                               fontSize: 14,
-                              color: AppColors.primary,
+                              color: AppColors.grey700,
+                            ).copyWith(
+                              decoration: TextDecoration.underline,
+                              decorationColor: AppColors.grey700,
+                              decorationThickness: 1.2,
                             ),
                           ),
                         ),
@@ -133,7 +153,7 @@ class LoginScreen extends StatelessWidget {
                         child: RichText(
                           text: TextSpan(
                             text: "Don't have any account? ",
-                            style: getTextStyle(color: Colors.black),
+                            style: getTextStyle(color: AppColors.black),
                             children: [
                               TextSpan(
                                 text: "Register Now",

@@ -61,12 +61,12 @@ jobs:
           name: scube-app-release
           path: build/app/outputs/flutter-apk/**/*.apk
 
-      # 10. Upload iOS IPA as artifact
-      - name: Upload iOS IPA
-        uses: actions/upload-artifact@v4
-        with:
-          name: scube-ios-ipa
-          path: build/ios/iphoneos/unsigned-app.ipa
+      # # 10. Upload iOS IPA as artifact
+      # - name: Upload iOS IPA
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: scube-ios-ipa
+      #     path: build/ios/iphoneos/unsigned-app.ipa
 
       # 11. Publish GitHub Release
       - name: Create Release

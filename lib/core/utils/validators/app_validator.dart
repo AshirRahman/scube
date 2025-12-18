@@ -40,8 +40,8 @@ class AppValidator {
       return 'Password must contain at least one special character.';
     }
     return null;
-
   }
+
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
       return 'Phone number is required.';
@@ -56,6 +56,4 @@ class AppValidator {
 
     return null;
   }
-
-
 }

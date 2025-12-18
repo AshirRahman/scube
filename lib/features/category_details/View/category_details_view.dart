@@ -5,10 +5,10 @@ import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/utils/constants/image_path.dart';
 import '../../dashboard/model/dashboard_feature_model.dart';
 
-class CategoryDetailScreen extends StatelessWidget {
+class CategoryDetailView extends StatelessWidget {
   final DashboardFeatureModel? feature;
 
-  const CategoryDetailScreen({super.key, this.feature});
+  const CategoryDetailView({super.key, this.feature});
 
   @override
   Widget build(BuildContext context) {

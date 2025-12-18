@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scube/features/dashboard/screen/dashboard_screen.dart';
+import 'package:scube/features/dashboard/View/dashboard_view.dart';
 import '../model/login_model.dart';
 
 class LoginController extends GetxController {
@@ -32,7 +32,7 @@ class LoginController extends GetxController {
     debugPrint("LOGIN DATA => ${loginData.toJson()}");
 
     // Navigate after success
-    Get.off(() => DashboardScreen());
+    Get.off(() => DashboardView());
 
     isLoading.value = false;
   }

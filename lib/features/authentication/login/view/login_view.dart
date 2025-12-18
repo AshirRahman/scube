@@ -7,8 +7,8 @@ import 'package:scube/core/utils/constants/colors.dart';
 import 'package:scube/core/utils/constants/image_path.dart';
 import '../controller/login_controller.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class LoginView extends StatelessWidget {
+  LoginView({super.key});
 
   final LoginController controller = Get.put(LoginController());
 

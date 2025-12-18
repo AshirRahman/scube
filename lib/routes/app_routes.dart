@@ -1,25 +1,25 @@
 import 'package:get/get.dart';
 import 'package:scube/features/authentication/login/view/login_view.dart';
-import 'package:scube/features/category_details/screen/category_details_screen.dart';
+import 'package:scube/features/category_details/View/category_details_view.dart';
 // import '../features/home/screen/home_screen.dart';
 
 class AppRoute {
-  static String loginScreen = "/loginScreen";
+  static String loginView = "/loginView";
   static String homeScreen = "/homeScreen";
   static String featureDetailsScreen = "/featureDetailsScreen";
 
-  static String getLoginScreen() => loginScreen;
+  static String getLoginView() => loginView;
   static String getHomeScreen() => homeScreen;
   static String getFeatureDetailsScreen() => featureDetailsScreen;
 
   static List<GetPage> routes = [
     GetPage(
-      name: loginScreen,
-      page: () => LoginScreen(),
+      name: loginView,
+      page: () => LoginView(),
     ),
     GetPage(
       name: featureDetailsScreen,
-      page: () => const CategoryDetailScreen(),
+      page: () => const CategoryDetailView(),
     ),
     // GetPage(name: homeScreen, page: () => const HomeScreen()),
   ];

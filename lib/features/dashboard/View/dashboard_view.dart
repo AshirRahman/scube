@@ -9,11 +9,11 @@ import 'package:scube/features/dashboard/widget/category_grid_section.dart';
 import 'package:scube/features/dashboard/widget/power_circle.dart';
 import 'package:scube/features/dashboard/widget/power_summary_list.dart';
 import 'package:scube/features/dashboard/widget/source_load_toggle.dart';
-import 'package:scube/features/data_revenue/screen/data_revenue_screen.dart';
-import 'package:scube/features/category_details/screen/category_details_screen.dart';
+import 'package:scube/features/data_revenue/view/data_revenue_view.dart';
+import 'package:scube/features/category_details/View/category_details_view.dart';
 
-class DashboardScreen extends StatelessWidget {
-  DashboardScreen({super.key});
+class DashboardView extends StatelessWidget {
+  DashboardView({super.key});
 
   final controller = Get.put(DashboardController());
 
@@ -117,7 +117,7 @@ class DashboardScreen extends StatelessWidget {
             CategoryGridSection(
               items: controller.featureList,
               onTap: (item) {
-                Get.to(CategoryDetailScreen(feature: item));
+                Get.to(CategoryDetailView(feature: item));
               },
             ),
           ],

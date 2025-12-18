@@ -71,7 +71,7 @@ class DataRevenueScreen extends StatelessWidget {
                           children: [
                             const SizedBox(height: 20),
 
-                            // Metric
+                            // Metric Circle
                             Center(
                               child: MetricCircle(
                                 value: controller.metricValue,

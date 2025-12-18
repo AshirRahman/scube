@@ -17,7 +17,7 @@ class ScubeTechnologies extends StatelessWidget {
       builder: (_, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoute.loginScreen,
+          initialRoute: AppRoute.loginView,
           getPages: AppRoute.routes,
           initialBinding: ControllerBinder(),
           themeMode: ThemeMode.light,

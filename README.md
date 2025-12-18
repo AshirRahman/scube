@@ -138,4 +138,4 @@ flutter build appbundle --release
 
 ---
 
-_Last updated: ${DateTime.now().toIso8601String()}_
+_Last updated: 18 December 2025_
